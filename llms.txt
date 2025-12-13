@@ -1,0 +1,61 @@
+# llms.txt for https://pizzaedition.pro/
+# Last updated: 2025-10-18
+# Purpose: Control access for AI and LLM crawlers and describe site content
+
+# --- AI CRAWLER ACCESS RULES ---
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: *
+Disallow: /private/
+Disallow: /cgi-bin/
+Crawl-delay: 5
+
+
+# --- SITE DESCRIPTION ---
+
+> basketball-games.io is a dedicated platform for basketball enthusiasts, offering a variety of online Pizza Edition. 
+> The website features arcade-style games and competitive basketball experiences suitable for players of all ages. 
+> Users can enjoy single-player games or challenge friends in multiplayer modes, all while honing their basketball skills. 
+> The site also provides information about the games, including instructions and tips, making it a comprehensive resource for both casual players and serious gamers.
+
+
+# --- CONTENT INDEX (20 of 47 URLs) ---
+
+- [Home](https://pizzaedition.pro/): The landing page featuring available games and highlights.
+- [About](https://pizzaedition.pro/about/): Information about the mission, vision, and team behind the site.
+- [Contact](https://pizzaedition.pro/contact/): Contact form and support information.
+- [FAQ](https://pizzaedition.pro/faq/): Frequently asked questions about the site and games.
+- [Basket and Ball](https://pizzaedition.pro/game/basket-and-ball/): Combines skill and strategy.
+- [Basket Battle](https://pizzaedition.pro/game/basket-battle/): Competitive scoring challenge.
+- [Basket Champs](https://pizzaedition.pro/game/basket-champs/): Championship-style competition.
+- [Basket Monsterz](https://pizzaedition.pro/game/basket-monsterz/): Fun characters with unique gameplay.
+- [Basket Random](https://pizzaedition.pro/game/basket-random/): Randomized casual gameplay.
+- [Basket Slam Dunk 2](https://pizzaedition.pro/game/basket-slam-dunk-2/): High-flying dunk sequel.
+- [Basket Swooshes Plus](https://pizzaedition.pro/game/basket-swooshes-plus/): Time-based shooting challenge.
+- [Basketball Clash](https://pizzaedition.pro/game/basketball-clash/): Multiplayer matches.
+- [Basketball FRVR](https://pizzaedition.pro/game/basketball-frvr/): Endless basketball shooting.
+- [Basketball IO](https://pizzaedition.pro/game/basketball-io/): Real-time multiplayer competition.
+- [Basketball King](https://pizzaedition.pro/game/basketball-king/): Point-based scoring duel.
+- [Basketball League](https://pizzaedition.pro/game/basketball-league/): Tournament-style progression.
+- [Basketball Legends 2020](https://pizzaedition.pro/game/basketball-legends-2020/): Legendary player challenges.
+- [Basketball Orbit](https://pizzaedition.pro/game/basketball-orbit/): Orbital shooting gameplay.
+- [Basketball Serial Shooter](https://pizzaedition.pro/game/basketball-serial-shooter/): Precision-based shooter.
+- [Basketball Skills](https://pizzaedition.pro/game/basketball-skills/): Skill-based challenges.
+
+# --- FULL CONTENT INDEX ---
+For all  pages, visit:
+https://pizzaedition.pro/sitemap.xml
