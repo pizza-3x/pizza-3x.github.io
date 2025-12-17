@@ -1,0 +1,54 @@
+name: IndexNow Submit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests lxml
+
+      - name: Submit URLs from Sitemap to IndexNow
+        run: |
+          python - <<EOF
+          import requests
+          import json
+          from lxml import etree
+
+          key = "6d39244fa1554e0493b56364609349f8"
+          sitemap_url = "https://pizzaedition.pro/sitemap.xml"
+
+          # sitemap fetch
+          r = requests.get(sitemap_url)
+          r.raise_for_status()
+
+          # parse sitemap
+          tree = etree.fromstring(r.content)
+          ns = {"ns": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          urls = [loc.text for loc in tree.xpath("//ns:loc", namespaces=ns)]
+
+          endpoint = "https://api.indexnow.org/indexnow"
+          payload = {
+              "host": "pizzaedition.pro",
+              "key": key,
+              "keyLocation": f"https://pizzaedition.pro/{key}.txt",
+              "urlList": urls
+          }
+
+          headers = {"Content-Type": "application/json"}
+          resp = requests.post(endpoint, headers=headers, data=json.dumps(payload))
+          print("Total URLs found:", len(urls))
+          print("Status Code:", resp.status_code)
+          print("Response:", resp.text)
+          EOF
