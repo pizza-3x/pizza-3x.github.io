@@ -8,7 +8,7 @@
 
             // Find all buttons with the given classes (desktop + mobile use same classes)
             const searchButtons = Array.from(document.getElementsByClassName('buttonReset'))
-                .filter(btn => btn.classList.contains('Ms6HEJ826qeso4NBVCoW') && btn.classList.contains('pMuUqYFsIC6GCbPomoSK'));
+                .filter(btn => btn.classList.contains('nav-search-btn') && btn.classList.contains('nav-search-field'));
 
             // Collect game items from the page (.summaryTile)
             function collectGames() {
@@ -17,7 +17,7 @@
                     const a = t.closest('a') || t;
                     const href = a.getAttribute('href') || a.dataset.href || '#';
                     const img = a.querySelector('img') ? a.querySelector('img').src : '';
-                    const title = (a.querySelector('.global-cq-title') && a.querySelector('.global-cq-title').textContent) || (a.getAttribute('title') || a.getAttribute('aria-label') || a.textContent);
+                    const title = (a.querySelector('.game-title-global') && a.querySelector('.game-title-global').textContent) || (a.getAttribute('title') || a.getAttribute('aria-label') || a.textContent);
                     return { title: (title||'').trim(), href, img };
                 });
             }
