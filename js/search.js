@@ -22,14 +22,41 @@
                 });
             }
 
+            // Primary games array used by the search. This will come from external JSON if available,
+            // otherwise we fall back to scanning `.summaryTile` elements in the page.
             let games = [];
-            function ensureGames() {
-                // Always refresh the games list when opening to avoid stale/empty arrays
-                games = collectGames().map(g => ({ title: (g.title||'').trim(), href: g.href, img: g.img }));
+            let externalTried = false;
+            let externalLoaded = false;
+
+            // Try to fetch external games list from /data/games.json
+            async function fetchExternalGames() {
+                if (externalTried) return false;
+                externalTried = true;
+                try {
+                    const res = await fetch('/data/games.json', { cache: 'no-cache' });
+                    if (!res.ok) return false;
+                    const data = await res.json();
+                    if (!Array.isArray(data)) return false;
+                    games = data.map(g => ({ title: (g.title||'').trim(), href: g.href || '#', img: g.img || '' }));
+                    externalLoaded = true;
+                    return true;
+                } catch (err) {
+                    return false;
+                }
             }
 
-            function openOverlay() {
-                ensureGames();
+            async function ensureGames() {
+                // Always try external source first to support site-wide search.
+                games = [];
+                const ok = await fetchExternalGames();
+                if (!ok) {
+                    // fallback to DOM-collected games
+                    games = collectGames().map(g => ({ title: (g.title||'').trim(), href: g.href, img: g.img }));
+                }
+            }
+
+            async function openOverlay() {
+                await ensureGames();
                 overlay.style.display = '';
                 overlay.setAttribute('aria-hidden', 'false');
                 input.value = '';
@@ -83,8 +110,9 @@
             // keyboard + escape
             document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display !== 'none') closeOverlay(); });
 
-            // Re-collect games if DOM changes (in case games are loaded later)
-            const observer = new MutationObserver(() => { games = collectGames(); });
+            // Re-collect games if DOM changes (in case games are loaded later).
+            // If external data successfully loaded, we avoid overwriting it.
+            const observer = new MutationObserver(() => { if (!externalLoaded) games = collectGames(); });
             observer.observe(document.body, { childList:true, subtree:true });
 
         })();
