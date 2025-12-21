@@ -1,4 +1,4 @@
-.V1p5wIzdoQ_efy5r0jKb {
+.mobile-game-header-inner {
     align-items: center;
     background: #fff;
     border-radius: 16px;
@@ -11,11 +11,11 @@
     padding: 10px 16px
 }
 
-.eVrsZ3G2gCE_CChlXGYj {
+.mobile-game-header-content {
     align-items: flex-start
 }
 
-.WkgGPoj56g0c5Rdpt85Z {
+.mobile-game-title48 {
     display: -webkit-box;
     display: box;
     margin: 0;
@@ -28,7 +28,7 @@
     text-overflow: ellipsis
 }
 
-.sgofAkt_uQfOQ3YZvXBq {
+.mobile-game-author48 {
     color: var(--grey-3);
     font: 12px/16px var(--fontBody);
     letter-spacing: .3px
@@ -154,7 +154,7 @@
     }
 }
 
-._oaA25NgnD27qRa7gZZ3 {
+.mobile-play-button {
     border-radius: 16px;
     box-shadow: var(--shadow-mid);
     display: block;
@@ -163,7 +163,7 @@
     width: 100%
 }
 
-._oaA25NgnD27qRa7gZZ3:after {
+.mobile-play-button:after {
     background-color: color-mix(in srgb, var(--blue-1) 60%, #0000);
     border-radius: 16px;
     bottom: 0;
@@ -175,7 +175,7 @@
     z-index: 1
 }
 
-.KX2IBwJ1xLYGDNo70d04 {
+.mobile-play-text {
     color: #fff;
     left: 50%;
     margin-top: 40px;
@@ -186,7 +186,7 @@
     z-index: 2
 }
 
-.Xn_wrmpnaAgB7BQligNB {
+.mobile-play-icon-wrap {
     animation: E33nCzOpCuJ4U2Y0wzwg 3s ease-in-out infinite;
     background-color: #fff;
     border-radius: 32px;
@@ -202,11 +202,11 @@
     z-index: 3
 }
 
-.TdOKhyxRxRBbvUXTeOnG {
+.mobile-play-icon-bgo {
     fill: var(--pizzaedition1-blue)
 }
 
-.jYzNFPbikRarfceie4AR {
+.mobile-game-thumbnail {
     border-radius: 16px;
     filter: saturate(0);
     height: 100%;
@@ -221,19 +221,19 @@
     z-index: 2
 }
 
-.I9jhqHVGJK1ymS7kdF5n .Xn_wrmpnaAgB7BQligNB {
+.mobile-play-button-large .mobile-play-icon-wrap {
     display: block
 }
 
-.I9jhqHVGJK1ymS7kdF5n .HJXDfIrrbhpJKiQaZ2dA {
+.mobile-play-button-large .HJXDfIrrbhpJKiQaZ2dA {
     display: none
 }
 
-.I9jhqHVGJK1ymS7kdF5n .jYzNFPbikRarfceie4AR {
+.mobile-play-button-large .mobile-game-thumbnail {
     filter: none
 }
 
-.I9jhqHVGJK1ymS7kdF5n:after {
+.mobile-play-button-large:after {
     background: linear-gradient(#0000 25%, #0000004d)
 }
 

@@ -2486,39 +2486,39 @@ html[dir=rtl] .oVJnDuO8ZC9Wvb4bvTKs {
     }
 }
 
-.cjI2e42faicGCm1ksKXp {
+.mobile-game-header {
     grid-area: ibx
 }
 
 @media (min-width:551px) and (max-width:660.9px) {
-    .cjI2e42faicGCm1ksKXp {
+    .mobile-game-header {
         display: none
     }
 }
 
-.cM0dvuoLEJDmDILA2Jo8 {
+.mobile-game-area48 {
     display: flex;
     grid-area: igc;
     justify-content: center
 }
 
 @media (min-width:111px) and (max-width:770.9px) {
-    .ZJTKr_MXUFVVsJpV_qiz {
+    .mobile-game-area-inner48 {
         height: 314px
     }
 }
 
 @media (min-width:661px) {
-    .ZJTKr_MXUFVVsJpV_qiz {
+    .mobile-game-area-inner48 {
         height: 424px
     }
 }
 
-.lwfhBFf00emgvcGoqV0g {
+.mobile-game-divider {
     grid-area: egc
 }
 
-.lwfhBFf00emgvcGoqV0g:empty {
+.mobile-game-divider:empty {
     display: contents
 }
 
@@ -2640,27 +2640,27 @@ html[dir=rtl] .oVJnDuO8ZC9Wvb4bvTKs {
 }
 
 @media (min-width:111px) and (max-width:550.9px) {
-    .Fs5S79qEs9av8TQAeTeb {
+    .mobile-game-page {
         grid-template-areas: "... ibx ibx""igc igc igc""igc igc igc""igc igc igc""egc egc egc""... ... ..."
     }
 }
 
 @media (min-width:551px) and (max-width:660.9px) {
-    .Fs5S79qEs9av8TQAeTeb {
+    .mobile-game-page {
         --gridTemplateColumns: 5;
         grid-template-areas: "... ibx ibx ibx ...""... igc igc igc ...""... igc igc igc ...""... igc igc igc ...""... egc egc egc ..."
     }
 }
 
 @media (min-width:661px) and (max-width:880.9px) {
-    .Fs5S79qEs9av8TQAeTeb {
+    .mobile-game-page {
         --gridTemplateColumns: 6;
         grid-template-areas: "... ibx ibx ibx ... ...""igc igc igc igc ... ...""igc igc igc igc ... ...""igc igc igc igc ... ...""igc igc igc igc ... ...""... egc egc egc ... ..."
     }
 }
 
 @media (min-width:881px) {
-    .Fs5S79qEs9av8TQAeTeb {
+    .mobile-game-page {
         --gridTemplateColumns: 8;
         grid-template-areas: "... ibx ibx ibx ... ... ... ...""igc igc igc igc ... ... ... ...""igc igc igc igc ... ... ... ...""igc igc igc igc ... ... ... ...""igc igc igc igc ... ... ... ...""... egc egc egc ... ... ... ..."
     }
