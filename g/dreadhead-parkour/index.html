@@ -37,14 +37,14 @@
     <link rel="preconnect" href="https://pizzaedition.pro" crossorigin>
     <link rel="dns-prefetch" href="https://www.highperformanceformat.com">
     
-    <!-- Defer CSS loading to reduce FCP -->
-    <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/category.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/games.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/mobile.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="/css/search.css" media="print" onload="this.media='all'">
+    <!-- Load CSS normally (no deferral) -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/category.css">
+    <link rel="stylesheet" href="/css/games.css">
+    <link rel="stylesheet" href="/css/mobile.css">
+    <link rel="stylesheet" href="/css/search.css">
     
-    <!-- Critical CSS inline for immediate render -->
+    <!-- Critical CSS for ads and layout stability -->
     <style>
         body { margin: 0; padding: 0; font-family: sans-serif; }
         .desktopVersion { display: block; }
@@ -53,6 +53,51 @@
             .desktopVersion { display: none !important; }
             .mobileVersion { display: block !important; }
         }
+        
+        /* Reserve space for ads to prevent CLS - Critical */
+        .iV0NGvWNqQGMUwVRfpqC { 
+            min-width: 728px; 
+            min-height: 90px; 
+            width: 728px; 
+            height: 90px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+        ._K68p9Y5eLN5PSdt4um9 { 
+            min-width: 300px; 
+            min-height: 250px; 
+            width: 300px; 
+            height: 250px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+        .ZWzDTMK76w9X1iaBvoSs { 
+            min-width: 160px; 
+            min-height: 600px; 
+            width: 160px; 
+            height: 600px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+        
+        /* Prevent FOUC */
+        body { visibility: visible; }
+        
+        /* Font optimization */
+        @font-face { font-display: swap; }
+        
+        /* Iframe and iframe content containment */
+        iframe { display: block; }
+        img { display: block; max-width: 100%; height: auto; }
     </style>
     <noscript>
         <link rel="stylesheet" href="/css/style.css">
@@ -641,8 +686,21 @@
                         allow="autoplay; fullscreen; camera; focus-without-user-activation *; monetization; gamepad; keyboard-map *; xr-spatial-tracking; accelerometer; magnetometer; gyroscope; microphone *"
                         name="gameFrame" scrolling="no"
                         sandbox="allow-scripts allow-same-origin allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation"
-                        src=""
+                        src="https://gameinclassroom.github.io/dreadhead-parkour/"
                         title="Game" class="Clsn52HE2ZzhoBMbiAF6"></iframe></div>
+                  </div>
+                  <!-- Top Ad (728x90) -->
+                  <div class="iV0NGvWNqQGMUwVRfpqC" style="margin: 12px 0;">
+                    <script>
+                      atOptions = {
+                        'key' : '8490ee0c2f66975e6fcc45e35c0993ee',
+                        'format' : 'iframe',
+                        'height' : 90,
+                        'width' : 728,
+                        'params' : {}
+                      };
+                    </script>
+                    <script async defer src="https://www.highperformanceformat.com/8490ee0c2f66975e6fcc45e35c0993ee/invoke.js"></script>
                   </div>
                   <div class="J91n1ymJasoch_FZq89b">
                     <div class="pLd41dO5iW2RcZ55UfRS">
@@ -3235,6 +3293,32 @@
 
 
           </div><aside style="flex:0 0 260px;min-width:180px;text-align:center;">
+            <div class="_K68p9Y5eLN5PSdt4um9">
+              <script>
+                atOptions = {
+                  'key' : 'd7e5026f2e1558976c94706c21f7f219',
+                  'format' : 'iframe',
+                  'height' : 250,
+                  'width' : 300,
+                  'params' : {}
+                };
+              </script>
+              <script async defer src="https://www.highperformanceformat.com/d7e5026f2e1558976c94706c21f7f219/invoke.js"></script>
+            </div>
+            <!-- 160x600 Ad -->
+            <div class="ZWzDTMK76w9X1iaBvoSs">
+              <script>
+                atOptions = {
+                  'key' : '5730c2fbea56001f84c8d91e24bdde33',
+                  'format' : 'iframe',
+                  'height' : 600,
+                  'width' : 160,
+                  'params' : {}
+                };
+              </script>
+              <script async defer src="https://www.highperformanceformat.com/5730c2fbea56001f84c8d91e24bdde33/invoke.js"></script>
+            </div>
+            <!-- Game Info -->
             <img alt="Basketball Legends 2020" src="https://pizzaedition.pro/images/dreadhead-parkour.webp"
               style="width:100%;height:auto;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.08);" loading="lazy" decoding="async" width="260" height="260" />
             <div style="margin-top:12px;text-align:left;font-size:14px;color:#444;">
