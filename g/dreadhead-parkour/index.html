@@ -167,76 +167,55 @@
     </style>
     
     <style>
-        /* CRITICAL: Prevent CLS - Reserve ad space without breaking layout */
+        /* CRITICAL: Prevent CLS - Reserve ad space upfront with FIXED dimensions */
         
-        /* 728x90 Ad Container */
-        .iV0NGvWNqQGMUwVRfpqC {
+        /* 728x90 Ad - Outer wrapper gets fixed size */
+        .yqRHsCZfzhtS8CI82MRw.iV0NGvWNqQGMUwVRfpqC {
             width: 728px !important;
             height: 90px !important;
             min-width: 728px !important;
             min-height: 90px !important;
             max-width: 728px !important;
             max-height: 90px !important;
-            contain: layout style paint !important;
             margin: 0 !important;
             padding: 0 !important;
-            overflow: hidden !important;
             border: none !important;
             display: block !important;
             flex-shrink: 0 !important;
         }
         
-        /* 300x250 Ad Container */
-        ._K68p9Y5eLN5PSdt4um9 {
+        /* 300x250 Ad - Outer wrapper gets fixed size */
+        .yqRHsCZfzhtS8CI82MRw._K68p9Y5eLN5PSdt4um9 {
             width: 300px !important;
             height: 250px !important;
             min-width: 300px !important;
             min-height: 250px !important;
             max-width: 300px !important;
             max-height: 250px !important;
-            contain: layout style paint !important;
             margin: 0 !important;
             padding: 0 !important;
-            overflow: hidden !important;
             border: none !important;
             display: block !important;
             flex-shrink: 0 !important;
         }
         
-        /* 160x600 Ad Container */
-        .ZWzDTMK76w9X1iaBvoSs {
+        /* 160x600 Ad - Outer wrapper gets fixed size */
+        .yqRHsCZfzhtS8CI82MRw.ZWzDTMK76w9X1iaBvoSs {
             width: 160px !important;
             height: 600px !important;
             min-width: 160px !important;
             min-height: 600px !important;
             max-width: 160px !important;
             max-height: 600px !important;
-            contain: layout style paint !important;
             margin: 0 !important;
             padding: 0 !important;
-            overflow: hidden !important;
             border: none !important;
             display: block !important;
             flex-shrink: 0 !important;
         }
         
-        /* Wrapper classes - prevent layout shifts */
-        .yqRHsCZfzhtS8CI82MRw {
-            margin: 0 !important;
-            padding: 0 !important;
-            border: none !important;
-            display: block !important;
-            width: 100% !important;
-            height: 100% !important;
-        }
-        .pBveriWEDsb6AJVk59Ng {
-            margin: 0 !important;
-            padding: 0 !important;
-            border: none !important;
-            display: block !important;
-            width: 100% !important;
-            height: 100% !important;
-        }
+        /* All wrapper classes - full size to match parent */
+        .pBveriWEDsb6AJVk59Ng,
         .okjidGhocmXN7zKxDo6s {
             margin: 0 !important;
             padding: 0 !important;
@@ -244,6 +223,16 @@
             display: block !important;
             width: 100% !important;
             height: 100% !important;
+        }
+        
+        /* Ad containers - inner sizing */
+        .iV0NGvWNqQGMUwVRfpqC,
+        ._K68p9Y5eLN5PSdt4um9,
+        .ZWzDTMK76w9X1iaBvoSs {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            overflow: hidden !important;
         }
         
         /* Hide advertisement text labels */
