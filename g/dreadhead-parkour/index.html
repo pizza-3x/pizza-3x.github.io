@@ -30,6 +30,7 @@
 
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimal-ui, shrink-to-fit=no viewport-fit=cover" />
+    <meta name="view-transition" content="same-origin">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.webp">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.webp">
@@ -163,6 +164,86 @@
             .mobileVersion {
                 display: block !important;
             }
+        }
+
+        /* ===== CUMULATIVE LAYOUT SHIFT (CLS) PREVENTION ===== */
+        
+        /* Prevent font-related CLS */
+        html {
+            font-display: swap;
+        }
+
+        /* Reserve space for images before load */
+        img, picture {
+            display: block;
+            vertical-align: middle;
+        }
+
+        .game-thumbnail {
+            display: block;
+            background-color: #f0f0f0;
+        }
+
+        /* Ad container size locks */
+        .iV0NGvWNqQGMUwVRfpqC {
+            min-width: 728px;
+            min-height: 90px;
+            width: 728px;
+            height: 90px;
+        }
+
+        ._K68p9Y5eLN5PSdt4um9 {
+            min-width: 300px;
+            min-height: 250px;
+            width: 300px;
+            height: 250px;
+        }
+
+        .ZWzDTMK76w9X1iaBvoSs {
+            min-width: 160px;
+            min-height: 600px;
+            width: 160px;
+            height: 600px;
+        }
+
+        /* Prevent iframe from shifting */
+        iframe {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pBveriWEDsb6AJVk59Ng,
+        .okjidGhocmXN7zKxDo6s,
+        .yqRHsCZfzhtS8CI82MRw {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Prevent div shifts */
+        div {
+            margin-block-start: revert;
+            margin-block-end: revert;
+        }
+
+        /* Prevent text node shifts */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Prevent button click shifts */
+        button, a {
+            outline-offset: 0;
+        }
+
+        /* Safe fallback for transforms */
+        * {
+            box-sizing: border-box;
         }
     </style> 
 </head>
@@ -3125,7 +3206,7 @@
 
           </div><aside style="flex:0 0 260px;min-width:180px;text-align:center;">
             <img alt="Basketball Legends 2020" src="https://pizzaedition.pro/images/dreadhead-parkour.webp"
-              style="width:100%;height:auto;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.08);" loading="lazy" />
+              style="width:100%;height:auto;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.08);" loading="lazy" decoding="async" width="260" height="260" />
             <div style="margin-top:12px;text-align:left;font-size:14px;color:#444;">
               <strong>Play now â€” No downloads</strong>
               <p style="margin:6px 0 0;font-size:13px;color:#666;">Click the player above to start the
