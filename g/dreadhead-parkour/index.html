@@ -9,7 +9,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-R4C11D45VG', {send_page_view: false});
+  gtag('config', 'G-R4C11D45VG', {send_page_view: false, 'anonymize_ip': true});
 </script>
      <meta name="author" content="Pizza Edition">
   <meta name="publisher" content="Sarkar Games">
@@ -31,6 +31,36 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimal-ui, shrink-to-fit=no viewport-fit=cover" />
     <meta name="view-transition" content="same-origin">
+
+    <!-- Preconnect to critical domains for faster loading -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://pizzaedition.pro" crossorigin>
+    <link rel="dns-prefetch" href="https://www.highperformanceformat.com">
+    
+    <!-- Defer CSS loading to reduce FCP -->
+    <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/category.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/games.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/mobile.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/search.css" media="print" onload="this.media='all'">
+    
+    <!-- Critical CSS inline for immediate render -->
+    <style>
+        body { margin: 0; padding: 0; font-family: sans-serif; }
+        .desktopVersion { display: block; }
+        .mobileVersion { display: none; }
+        @media (max-width: 880px) {
+            .desktopVersion { display: none !important; }
+            .mobileVersion { display: block !important; }
+        }
+    </style>
+    <noscript>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/category.css">
+        <link rel="stylesheet" href="/css/games.css">
+        <link rel="stylesheet" href="/css/mobile.css">
+        <link rel="stylesheet" href="/css/search.css">
+    </noscript>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.webp">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.webp">
@@ -3264,9 +3294,9 @@
     <div style="display: contents;"></div>
   </div>
 
-  <script src="/js/main.js"></script>
-  <script src="/js/refresh.js"></script>
-  <script src="/js/search.js"></script>
+  <script async src="/js/main.js"></script>
+  <script defer src="/js/refresh.js"></script>
+  <script defer src="/js/search.js"></script>
 </body>
 
 </html>
