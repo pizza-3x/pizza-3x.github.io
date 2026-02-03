@@ -14,7 +14,7 @@
      <meta name="author" content="Pizza Edition">
   <meta name="publisher" content="Sarkar Games">
     <meta charset="utf-8">
-
+    <script>!function(){try{var t=localStorage.getItem("theme");t?document.documentElement.setAttribute("data-theme",t):document.documentElement.setAttribute("data-theme","dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}}();</script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/category.css">
     <link rel="stylesheet" href="/css/games.css">
@@ -132,36 +132,14 @@
     }
   ]
 }
-</script>
-
-
-
-
-    <style>
-        /* Show desktop (and tablet) versions by default; hide mobile version
-           Mobile will be shown only on narrow viewports */
-        .desktopVersion {
-            display: block;
-        }
-
-        .mobileVersion {
-            display: none;
-        }
-
-        /* Mobile breakpoint: show mobileVersion and hide desktopVersion for small screens */
-        @media (max-width: 880px) {
-            .desktopVersion {
-                display: none !important;
-            }
-
-            .mobileVersion {
-                display: block !important;
-            }
-        }
-    </style> 
+</script>    <style>.desktopVersion{display:block}.mobileVersion{display:none}@media (max-width:880px){.desktopVersion{display:none!important}.mobileVersion{display:block!important}}#themeToggle{position:fixed;top:14px;right:16px;z-index:99999;background:rgba(255,255,255,.85);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.2)}:root{--body-bg:#f9fbff;--content-bg:#ffffff;--text-main:#002b50}html[data-theme=dark]{--body-bg:#0f172a;--content-bg:#111827;--text-main:#e5e7eb;--bodyBackground:#0f172a}html[data-theme=light]{--bodyBackground:var(--green-7) url("/bg-diamante-p.png")}body{background-color:var(--body-bg)}html[data-theme=dark] #game-description{background:#111827!important;color:#e5e7eb!important}html[data-theme=light] #game-description{background:#fff!important;color:#002b50!important}</style> 
+    
 </head>
 
 <body>
+  <button id="themeToggle" aria-label="Toggle theme">
+  🌙
+</button>
   <div id="app-root" style="height: auto;"><svg xmlns="http://www.w3.org/2000/svg"
       style="display: none;">
       <symbol id="arrowIcon" viewBox="6 0 14 24">
@@ -3172,6 +3150,7 @@
   <script src="/js/main.js"></script>
   <script src="/js/refresh.js"></script>
   <script src="/js/search.js"></script>
+<script>!function(){let t=document.getElementById("themeToggle"),e=document.documentElement,m=localStorage.getItem("theme");m||(m="dark",localStorage.setItem("theme","dark")),e.setAttribute("data-theme",m),t.textContent="dark"===m?"☀️":"\uD83C\uDF19",t.onclick=()=>{let m="dark"===e.getAttribute("data-theme"),a=m?"light":"dark";e.setAttribute("data-theme",a),localStorage.setItem("theme",a),t.textContent="dark"===a?"☀️":"\uD83C\uDF19"}}();</script>
 </body>
 
 </html>
