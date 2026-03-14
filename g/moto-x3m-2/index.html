@@ -15,7 +15,10 @@
   <meta name="publisher" content="Sarkar Games">
     <meta charset="utf-8">
     <script>!function(){try{var t=localStorage.getItem("theme");t?document.documentElement.setAttribute("data-theme",t):document.documentElement.setAttribute("data-theme","dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}}();</script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="/css/category.css">
     <link rel="stylesheet" href="/css/games.css">
     <link rel="stylesheet" href="/css/mobile.css">
@@ -117,7 +120,7 @@
       "name": "Where can you play Moto X3M 2?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "You can play Moto X3M 2 on Pizza-Edition.pro, where you get unblocked Moto X3M 2 completely free and without adsâ€”ideal for smooth practice and clean speedruns from any device."
+        "text": "You can play Moto X3M 2 on Pizza-Edition.pro, where you get unblocked Moto X3M 2 completely free and without ads-ideal for smooth practice and clean speedruns from any device."
       }
     },
     {
@@ -138,14 +141,11 @@
     }
   ]
 }
-</script>    <style>.desktopVersion{display:block}.mobileVersion{display:none}@media (max-width:880px){.desktopVersion{display:none!important}.mobileVersion{display:block!important}}#themeToggle{position:fixed;top:14px;right:16px;z-index:99999;background:rgba(255,255,255,.85);border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:18px;box-shadow:0 4px 12px rgba(0,0,0,.2)}:root{--body-bg:#f9fbff;--content-bg:#ffffff;--text-main:#002b50}html[data-theme=dark]{--body-bg:#0f172a;--content-bg:#111827;--text-main:#e5e7eb;--bodyBackground:#0f172a}html[data-theme=light]{--bodyBackground:var(--green-7) url("/bg-diamante-p.png")}body{background-color:var(--body-bg)}html[data-theme=dark] #game-description{background:#111827!important;color:#e5e7eb!important}html[data-theme=light] #game-description{background:#fff!important;color:#002b50!important}</style> 
+</script>    <style>.desktopVersion{display:block}.mobileVersion{display:none}@media (max-width:880px){.desktopVersion{display:none!important}.mobileVersion{display:block!important}}#game-description, h2, h3, p{margin-bottom: 1rem;}</style> 
     
 </head>
 
 <body>
-  <button id="themeToggle" aria-label="Toggle theme">
-  🌙
-</button>
   <div id="app-root" style="height: auto;"><svg xmlns="http://www.w3.org/2000/svg"
       style="display: none;">
       <symbol id="arrowIcon" viewBox="6 0 14 24">
@@ -483,19 +483,76 @@
         <div class="search-results" id="site-search-results" aria-live="polite"></div>
       </div>
     </div>
+    <nav class="navbar navbar-expand-lg navbar-dark top-nav" id="mainNav">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu"
+        aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand js-scroll-trigger" href="/">
+        <!-- <img src="#" width="70" height="35" class="" alt=" logo"> -->
+        <strong><img src="/images/icon/logo.webp" alt="Pizza Edition Unlocked" style="width: 3.802vw; height: auto;"> THE  <span
+            class="highlight">PIZZA</span> EDITION</strong>
+      </a>
+
+
+      <div class="navbar-collapse collapse" id="nav-menu">
+
+
+        <ul class="navbar-nav">
+
+
+          <li class="nav-item "><a class="nav-link " href="/category/all/"><img src="/images/icon/category.png"
+                alt="Pizza Edition Unlocked" style="width: 1.802vw; height: auto;"> All Categories</a></li>
+          <li class="nav-item "><a class="nav-link " href="/all-games/"><img src="/images/icon/whitegame.png"
+                alt="Pizza Edition Unlocked" style="width: 1.802vw; height: auto;"> Games</a></li>
+          <li class="nav-item "><a class="nav-link " ><img src="/images/icon/whitenblocks.png"
+                alt="Pizza Edition Unlocked" style="width: 1.802vw; height: auto;"> Apps</a></li>
+
+        </ul>
+                <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+                    <!-- Search Icon Only -->
+                    <div class="search-container" style="display: flex; align-items: center; gap: 10px;">
+                    <div id="searchIcon" style="cursor:pointer; font-size: 1.7em; color: #fafafa;">
+                    <i class="fa fa-search"></i>
+                   </div>
+                 <div id="searchModal">
+                   <div>
+                 <span id="closeSearchModal">&times;</span>
+                  <input id="searchInput" type="text" placeholder="Search games...">
+                  <div id="searchResults"></div>
+                 </div>
+                 </div>
+                 </div>
+                    <!-- Best Version Hover Links -->
+                    <div id="bestVersion" style="position: relative;">
+                        <span style="background: #4a9d4f; color: #fff; padding: 6px 14px; border-radius: 18px; font-weight: 500; cursor: pointer;">Other Pizza Version</span>
+                        <div id="hoverLinks" style="display: none; position: absolute; top: 120%; left: 0; background: #fff; border: 1px solid #4a9d4f; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-width: 220px; z-index: 100;">
+                            <a href="https://pizzaedition.pro/" target="_blank" style="display: block; padding: 10px 18px; color: #000000; border-radius: 8px; background-color: #4a919d; text-decoration: none; border-bottom: 1px solid #eee;">pizzaedition.pro
+                              <p style="font-size: 12px;">Best Version</p>
+                            </a>
+                            <a href="https://pizza-edition-unblocked.github.io/" target="_blank" style="display: block; padding: 10px 18px; color: #4a9d4f; text-decoration: none;">pizza-edition-browser.github.io</a>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                // Hover logic for Best Version
+                const bestVersion = document.getElementById('bestVersion');
+                const hoverLinks = document.getElementById('hoverLinks');
+                if (bestVersion && hoverLinks) {
+                    bestVersion.addEventListener('mouseenter', () => {
+                        hoverLinks.style.display = 'block';
+                    });
+                    bestVersion.addEventListener('mouseleave', () => {
+                        hoverLinks.style.display = 'none';
+                    });
+                }
+                </script>
+      </div>
+    </div>
+  </nav>
     <div class="desktopVersion">
-      <nav id="nav" class="main-navbar navbar-inner">
-        <div class="logo-wrapper"><a href="/" title="Pizza Edition" aria-label="Pizza Edition"
-            class="logo-link logo-image"><img src="/PIZZAEDITION.png" alt="Pizza Edition logo"
-              srcset="Pizza Edition logo" style="margin-left: -5px;"></a></div>
-        <div class="nav-search-wrap">
-          <button type="button" title="Search" aria-label="Search"
-            class="buttonReset nav-search-btn nav-search-field">What are you playing today?<svg
-              xmlns="http://www.w3.org/2000/svg" class="nav-search-svg">
-              <use xlink:href="#searchIcon"></use>
-            </svg></button>
-        </div>
-      </nav>
+      
       <div class="force-visible home-section-visible">
 
         <div class="games-block KOhrFB4QDKEFN2uykSgp">
@@ -1801,18 +1858,7 @@
 
 
     <div class="mobileVersion">
-      <nav id="nav" class="main-navbar extra-ui-section">
-        <div class="logo-wrapper"><a href="/" title="Pizza Edition" aria-label="Pizza Edition"
-            class="logo-link logo-image"><img src="/PIZZAEDITION.png" alt="Pizza Edition logo"
-              srcset="Pizza Edition logo" style="margin-left: -5px;"></a></div>
-        <div class="nav-search-wrap">
-          <button type="button" title="Search" aria-label="Search"
-            class="buttonReset nav-search-btn nav-search-field">What are you playing
-            today?<svg xmlns="http://www.w3.org/2000/svg" class="nav-search-svg">
-              <use xlink:href="#searchIcon"></use>
-            </svg></button>
-        </div>
-      </nav>
+      
       <div class="force-visible site-wrapper">
 
         <div class="games-block mobile-game-page">
@@ -3001,7 +3047,7 @@
         }
       </style>
       <section id="game-description" class="game-description"
-        style="box-sizing:border-box;padding:28px;background:#fff;border-radius:8px;margin:18px 0;box-shadow:0 6px 20px rgba(0,0,0,0.06);">
+        style="box-sizing:border-box;padding:28px;background:#2f3644;color: #eee; border-radius:8px;margin:18px 0;box-shadow:0 6px 20px rgba(0,0,0,0.06);">
         <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
           <div style="flex:1 1 520px;min-width:260px;">
           <h2>MOTO X3M 2 &ndash; Play Free Online at Pizza Edition Games</h2>
@@ -3106,7 +3152,7 @@
             <img alt="Basketball Legends 2020" src="https://pizzaedition.pro/images/moto-x3m-2.webp"
               style="width:100%;height:auto;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,0.08);" loading="lazy" />
             <div style="margin-top:12px;text-align:left;font-size:14px;color:#444;">
-              <strong>Play now â€” No downloads</strong>
+              <strong>Play now - No downloads</strong>
               <p style="margin:6px 0 0;font-size:13px;color:#666;">Click the player above to start the
                 game. Use the controls table to learn how to play on your device.</p>
             </div>
@@ -3121,7 +3167,7 @@
               aria-label="Click to visit Pizza Edition company page" class="buttonReset footer-logo-btn">
               <div class="footer-logo-wrap"><a href="/" title="Click to visit Pizza Edition company page"
                   aria-label="Click to visit Pizza Edition company page" class="logo-link"><img
-                    src="/PIZZAEDITION.png" alt="Pizza Edition logo" srcset="Pizza Edition logo"
+                    src="/images/icon/logo.webp" alt="Pizza Edition logo" srcset="Pizza Edition logo"
                     style="margin-left: -5px;"></a></div><span class="hidden-ui-helper"><span
                   class="header-random-wrap">Click. Play. Enjoy. | Gaming</span></span>
             </button>
@@ -3162,10 +3208,10 @@
     <div style="display: contents;"></div>
   </div>
 
-  <script src="/js/main.js"></script>
-  <script src="/js/refresh.js"></script>
   <script src="/js/search.js"></script>
-<script>!function(){let t=document.getElementById("themeToggle"),e=document.documentElement,m=localStorage.getItem("theme");m||(m="dark",localStorage.setItem("theme","dark")),e.setAttribute("data-theme",m),t.textContent="dark"===m?"☀️":"\uD83C\uDF19",t.onclick=()=>{let m="dark"===e.getAttribute("data-theme"),a=m?"light":"dark";e.setAttribute("data-theme",a),localStorage.setItem("theme",a),t.textContent="dark"===a?"☀️":"\uD83C\uDF19"}}();</script>
+  <script src="/js/main.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/refresh.js"></script>
 </body>
 
 </html>

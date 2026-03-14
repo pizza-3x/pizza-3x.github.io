@@ -6,6 +6,14 @@
             const results = document.getElementById('site-search-results');
             const closeBtn = document.getElementById('site-search-close');
 
+            // Game-page modal search elements
+            // Avoid SVG symbol with same id by selecting only a visible container element
+            const localSearchButton = document.querySelector('div#searchIcon, button#searchIcon');
+            const localSearchModal = document.getElementById('searchModal');
+            const localSearchInput = document.getElementById('searchInput');
+            const localSearchResults = document.getElementById('searchResults');
+            const localSearchClose = document.getElementById('closeSearchModal');
+
             // Find all buttons with the given classes (desktop + mobile use same classes)
             const searchButtons = Array.from(document.getElementsByClassName('buttonReset'))
                 .filter(btn => btn.classList.contains('nav-search-btn') && btn.classList.contains('nav-search-field'));
@@ -57,20 +65,46 @@
 
             async function openOverlay() {
                 await ensureGames();
-                overlay.style.display = '';
-                overlay.setAttribute('aria-hidden', 'false');
-                input.value = '';
-                input.focus();
-                renderResults(games);
-                document.documentElement.style.overflow = 'hidden';
+                if (overlay) {
+                    overlay.style.display = '';
+                    overlay.setAttribute('aria-hidden', 'false');
+                    if (input) {
+                        input.value = '';
+                        input.focus();
+                    }
+                    renderResults(games);
+                    document.documentElement.style.overflow = 'hidden';
+                } else if (localSearchModal) {
+                    openLocalSearch();
+                }
             }
 
             function closeOverlay() {
-                overlay.style.display = 'none';
-                overlay.setAttribute('aria-hidden', 'true');
-                document.documentElement.style.overflow = '';
+                if (overlay) {
+                    overlay.style.display = 'none';
+                    overlay.setAttribute('aria-hidden', 'true');
+                    document.documentElement.style.overflow = '';
+                }
                 // return focus to first search button
                 if (searchButtons[0]) searchButtons[0].focus();
+            }
+
+            function openLocalSearch() {
+                if (!localSearchModal || !localSearchInput || !localSearchResults) return;
+                ensureGames().then(() => {
+                    localSearchModal.style.display = 'flex';
+                    localSearchInput.value = '';
+                    localSearchInput.focus();
+                    renderLocalResults(games);
+                    document.documentElement.style.overflow = 'hidden';
+                });
+            }
+
+            function closeLocalSearch() {
+                if (localSearchModal) {
+                    localSearchModal.style.display = 'none';
+                    document.documentElement.style.overflow = '';
+                }
             }
 
             function renderResults(list) {
@@ -97,18 +131,64 @@
                 renderResults(filtered);
             }
 
+            function onLocalSearchInput(e) {
+                const q = (e.target.value || '').trim().toLowerCase();
+                const filtered = q ? games.filter(g => (g.title||'').toLowerCase().includes(q)) : games;
+                renderLocalResults(filtered);
+            }
+
+            function renderLocalResults(list) {
+                if (!localSearchResults) return;
+                localSearchResults.innerHTML = '';
+                if (!list.length) {
+                    localSearchResults.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:#888;font-size:1.2em;">No games found.</div>';
+                    return;
+                }
+                const frag = document.createDocumentFragment();
+                list.forEach(g => {
+                    const a = document.createElement('a');
+                    a.href = g.href;
+                    a.style = 'display:flex;align-items:center;gap:16px;padding:14px 12px;border-radius:12px;text-decoration:none;background:#f8f8f8;color:#222;transition:background 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04);';
+                    a.onmouseover = () => a.style.background = '#e6f7fa';
+                    a.onmouseout = () => a.style.background = '#f8f8f8';
+                    a.innerHTML = `
+                        <img src="${g.img||''}" alt="${escapeHtml(g.title)}" style="width:54px;height:54px;border-radius:10px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,0.08)">
+                        <div>
+                            <div style="font-weight:600;font-size:1.1em;">${escapeHtml(g.title)}</div>
+                            <div style="font-size:0.98em;color:#888;">${(g.href||'').replace('/g/','').replace(/\//g,' ').replace(/-/g,' ')}</div>
+                        </div>
+                    `;
+                    frag.appendChild(a);
+                });
+                localSearchResults.appendChild(frag);
+            }
+
             function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c]; }); }
 
             // Attach events
             searchButtons.forEach(btn => btn.addEventListener('click', function(e){ e.preventDefault(); openOverlay(); }));
-            backdrop.addEventListener('click', closeOverlay);
-            closeBtn.addEventListener('click', closeOverlay);
+            if (localSearchButton) localSearchButton.addEventListener('click', function(e){ e.preventDefault(); openLocalSearch(); });
+            if (backdrop) backdrop.addEventListener('click', closeOverlay);
+            if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+            if (localSearchClose) localSearchClose.addEventListener('click', closeLocalSearch);
             // Listen to multiple events to support various browsers and the native clear button
-            input.addEventListener('input', onSearchInput);
-            input.addEventListener('keyup', onSearchInput);
-            input.addEventListener('search', onSearchInput);
+            if (input) {
+                input.addEventListener('input', onSearchInput);
+                input.addEventListener('keyup', onSearchInput);
+                input.addEventListener('search', onSearchInput);
+            }
+            if (localSearchInput) {
+                localSearchInput.addEventListener('input', onLocalSearchInput);
+                localSearchInput.addEventListener('keyup', onLocalSearchInput);
+                localSearchInput.addEventListener('search', onLocalSearchInput);
+            }
             // keyboard + escape
-            document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && overlay.style.display !== 'none') closeOverlay(); });
+            document.addEventListener('keydown', function(e){
+                if (e.key === 'Escape') {
+                    if (overlay && overlay.style.display !== 'none') closeOverlay();
+                    if (localSearchModal && localSearchModal.style.display !== 'none') closeLocalSearch();
+                }
+            });
 
             // Re-collect games if DOM changes (in case games are loaded later).
             // If external data successfully loaded, we avoid overwriting it.
